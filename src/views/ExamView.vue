@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Header from '../components/TheHeader.vue';
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const question = "Четыре простых числа расположены в порядке возрастания. Сумма первых трех равна 385, а последней — 1001."
 const options = ref(["11", "13", "17", "9"])
 const selected = ref(null)
 
-const totalSteps = 5
+const totalSteps = 10
 const currentStep = ref(2)
 
 const nextStep = () => {
@@ -17,8 +17,12 @@ const prevStep = () => {
   if (currentStep.value > 1) currentStep.value--;
 };
 
+const setCurrentStep = (n: number) => {
+  currentStep.value = n
+}
+
 const timeRemaining = ref(12400); // (in seconds)
-let timer = null;
+const timer = null;
 
 const formattedTime = computed(() => {
   const hours = Math.floor(timeRemaining.value / 3600);
@@ -108,8 +112,8 @@ const startTimer = () => {
                   stroke="black"
                   stroke-width="10"
                   fill="none"
-                  stroke-dasharray="251.2"
-                  :stroke-dashoffset="251.2 - (251.2 * currentStep / totalSteps)"
+                  stroke-dasharray="280"
+                  :stroke-dashoffset="280 - (280 * currentStep / totalSteps)"
                   stroke-linecap="round"
                   class="transition-all duration-300"
                 />
@@ -122,10 +126,10 @@ const startTimer = () => {
           </div>
         </div>
 
-        <div class="flex items-center gap-4 mt-4 ml-2">
+        <div class="flex items-center gap-4 mt-12 ml-2">
           <!-- Prev Button -->
           <button
-            class="w-12 h-12 bg-gray-300 text-gray-700 rounded-md font-medium text-lg disabled:opacity-50"
+            class="w-12 h-12 border border-slate-100 text-gray-700 rounded-xl font-medium text-lg disabled:bg-gray-300"
             :disabled="currentStep === 1"
             @click="prevStep"
           >
@@ -139,6 +143,7 @@ const startTimer = () => {
               :key="n"
               class="cursor-pointer w-12 h-12 flex items-center justify-center border border-slate-100 rounded-xl font-medium text-lg"
               :class="n === currentStep ? 'bg-gray-200 border-black' : 'hover:bg-gray-100'"
+              @click="setCurrentStep(n)"
             >
               {{ n }}
             </span>
@@ -146,7 +151,7 @@ const startTimer = () => {
 
           <!-- Next Button -->
           <button
-            class="w-12 h-12 bg-gray-300 text-gray-700 rounded-md font-medium text-lg disabled:opacity-50"
+            class="w-12 h-12 border border-slate-100 text-gray-700 rounded-xl font-medium text-lg disabled:bg-gray-300"
             :disabled="currentStep === totalSteps"
             @click="nextStep"
           >

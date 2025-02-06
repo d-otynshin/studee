@@ -36,31 +36,31 @@ import Card from '../components/TheCard.vue';
           <Card
             title="Функции"
             price="Математика"
-            img="/src/assets/images/lessons/newtons-r.svg"
+            img="/src/assets/images/lessons/formula.svg"
           />
 
           <Card
             title="Графы"
             price="Математика"
-            img="/src/assets/images/lessons/chemistry-r.svg"
+            img="/src/assets/images/lessons/atom.svg"
           />
 
           <Card
             title="Арифметика"
             price="Математика"
-            img="/src/assets/images/lessons/calculator-s.svg"
+            img="/src/assets/images/lessons/calculator.svg"
           />
 
           <Card
             title="Корни"
             price="Математика"
-            img="/src/assets/images/lessons/root-r.svg"
+            img="/src/assets/images/lessons/abc.svg"
           />
 
           <Card
             title="Правописание"
             price="Грамматика"
-            img="/src/assets/images/lessons/magnet-r.svg"
+            img="/src/assets/images/lessons/lab.svg"
           />
         </div>
       </div>

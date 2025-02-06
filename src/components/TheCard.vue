@@ -3,7 +3,7 @@
 defineProps({
   title: String,
   img: String,
-  price: Number,
+  price: String,
 });
 
 </script>
@@ -13,7 +13,7 @@ defineProps({
     <div
       class="flex flex-col w-full border border-slate-100 rounded-xl p-8 cursor-pointer transition hover:shadow-md"
     >
-      <img :src="img" class="w-5/6" alt="Sneaker" />
+      <img :src="img" class="w-5/6 self-center" alt="Sneaker" />
       <p class="pt-4">{{ title }}</p>
       <div class="flex justify-between mt-5">
         <div class="flex flex-col gap-2">
