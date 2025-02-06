@@ -13,7 +13,7 @@ const tabs = ref([
 
 <template>
   <main>
-    <div class="bg-white w-5/6 m-auto rounded-xl shadow-xl shadow-grey-200 my-20">
+    <div class="bg-white w-5/6 m-auto rounded-xl shadow-xl shadow-grey-200 my-10">
       <Header />
 
       <div class="p-10">
